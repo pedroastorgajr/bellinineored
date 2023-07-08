@@ -17,7 +17,7 @@ export default class Scoreboard {
     decrement() {
         if (!this.outOfMoney) {
             this.money -= this.bet;
-            this.moneyText.text = `DISPONIBLE: {this.money}`;
+            this.moneyText.text = `DISPONIBLE: $${this.money}`;
         }
         if (this.money - this.bet < 0) {
             this.outOfMoney = true;
@@ -26,9 +26,9 @@ export default class Scoreboard {
 
     increment() {
         this.money += this.bet * 2;
-        this.moneyText.text = `DISPONIBLE: {this.money}`;
+        this.moneyText.text = `DISPONIBLE: $${this.money}`;
         this.winAmount += this.bet;
-        this.winAmountText.text = `GANADO: {this.winAmount}`;
+        this.winAmountText.text = `GANADO: $${this.winAmount}`;
         if (this.outOfMoney) this.outOfMoney = false;
     }
 
@@ -39,13 +39,13 @@ export default class Scoreboard {
             fill: 'yellow',
         });
 
-        this.moneyText = new PIXI.Text(`DISPONIBLE: {this.money}`, style);
+        this.moneyText = new PIXI.Text(`DISPONIBLE: $${this.money}`, style);
         this.moneyText.y = 5;
 
-        const betText = new PIXI.Text(`TIROS: {this.bet}`, style);
+        const betText = new PIXI.Text(`JUGADO: $${this.bet}`, style);
         betText.y = this.moneyText.height + 10;
 
-        this.winAmountText = new PIXI.Text(`GANADO: {this.winAmount}`, style);
+        this.winAmountText = new PIXI.Text(`GANADO: $${this.winAmount}`, style);
         this.winAmountText.y = betText.y + betText.height + 5;
 
         betText.x = this.moneyText.x = this.winAmountText.x = 10;
