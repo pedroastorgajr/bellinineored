@@ -47,7 +47,7 @@ export default class VictoryScreen {
             fill: 'yellow',
         });
 
-        const text = new PIXI.Text('YOU WON!', style);
+        const text = new PIXI.Text('GANASTE!!!', style);
         text.x = 70 + (rect.width - text.width) / 2;
         text.y = (appHeight - text.height) / 2;
 
